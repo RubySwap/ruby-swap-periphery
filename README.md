@@ -1,6 +1,4 @@
-# Pancake Router
-
-### Bsc-Test
+# Ruby Router
 
 The following assumes the use of `node@>=10`.
 
