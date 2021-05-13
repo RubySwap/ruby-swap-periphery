@@ -659,16 +659,10 @@ describe('RubyRouter', () => {
     it('happy path', async () => {
       const WETHPairToken0 = await WETHPair.token0()
       await expect(
-        router.swapETHForExactTokens(
-          outputAmount,
-          [WETH.address, WETHPartner.address],
-          wallet.address,
-          MaxUint256,
-          {
-            ...overrides,
-            value: expectedSwapAmount
-          }
-        )
+        router.swapETHForExactTokens(outputAmount, [WETH.address, WETHPartner.address], wallet.address, MaxUint256, {
+          ...overrides,
+          value: expectedSwapAmount
+        })
       )
         .to.emit(WETH, 'Transfer')
         .withArgs(router.address, WETHPair.address, expectedSwapAmount)
