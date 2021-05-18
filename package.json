@@ -1,6 +1,6 @@
 {
   "name": "rubyswap-peripheral",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Peripheral smart contracts for interacting with ruby",
   "engines": {
     "node": ">=10"
@@ -15,8 +15,8 @@
     "contracts"
   ],
   "dependencies": {
-    "@rubyswap/ruby-swap-lib": "1.0.0",
-    "@rubyswap/ruby-swap-core": "^1.0.0",
+    "@rubyswap/ruby-swap-lib": "1.1.0",
+    "@rubyswap/ruby-swap-core": "^1.1.0",
     "truffle-hdwallet-provider": "^1.0.17",
     "truffle-plugin-verify": "^0.4.0"
   },

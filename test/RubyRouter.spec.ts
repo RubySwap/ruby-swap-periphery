@@ -359,7 +359,7 @@ describe('RubyRouter', () => {
         overrides
       )
       const receipt = await tx.wait()
-      expect(receipt.gasUsed).to.eq(101898)
+      expect(receipt.gasUsed).to.eq(108880)
     }).retries(3)
   })
 
@@ -503,7 +503,7 @@ describe('RubyRouter', () => {
         }
       )
       const receipt = await tx.wait()
-      expect(receipt.gasUsed).to.eq(138770)
+      expect(receipt.gasUsed).to.eq(145731)
     }).retries(3)
   })
 
