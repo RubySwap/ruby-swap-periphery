@@ -1,7 +1,6 @@
 pragma solidity >=0.5.0;
 
 import '@rubyswap/ruby-swap-core/contracts/interfaces/IRubyPair.sol';
-import '@rubyswap/ruby-swap-core/contracts/interfaces/IRubyFactory.sol';
 
 import {SafeMath as SM} from "./SafeMath.sol";
 
@@ -16,8 +15,14 @@ library RubyLibrary {
     }
 
     // calculates the CREATE2 address for a pair without making any external calls
-    function pairFor(address factory, address tokenA, address tokenB) internal view returns (address pair) {
-        pair = IRubyFactory(factory).getPair(tokenA, tokenB);
+    function pairFor(address factory, address tokenA, address tokenB) internal pure returns (address pair) {
+        (address token0, address token1) = sortTokens(tokenA, tokenB);
+        pair = address(uint(keccak256(abi.encodePacked(
+                hex'ff',
+                factory,
+                keccak256(abi.encodePacked(token0, token1)),
+                hex'e48d7f0ede6baf2595e83f5180d21dc70767a73aadbb08df000bd497b9decf13' // init code hash
+            ))));
     }
 
     // fetches and sorts the reserves for a pair
